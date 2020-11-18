@@ -35,7 +35,7 @@ public class TextReaderController {
         fileChooser.setTitle("Select Files");
         File selectedFile=fileChooser.showOpenDialog(null);
 
-        fileLinkedList.addLast(selectedFile);
+        fileLinkedList.addLast(selectedFile.getAbsoluteFile());
         textCountDisplay.getItems().add(selectedFile.getName());
 
         
