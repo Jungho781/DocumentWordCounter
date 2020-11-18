@@ -4,16 +4,15 @@ import javafx.concurrent.Task;
 
 import java.io.*;
 
-public class FileWordCountTask extends Task {
-    private final File[] files;
+public class FileWordCountTask extends Task<Integer> {
+    private int countWord=0;
 
     public FileWordCountTask(File fileLocation) throws IOException {
-        files=new File[10];
+
         FileInputStream fIS=new FileInputStream(fileLocation);
         InputStreamReader iSR=new InputStreamReader(fIS);
         BufferedReader reader=new BufferedReader(iSR);
         String line;
-        int countWord=0;
         int paragraphCount=1;
 
         while((line=reader.readLine())!=null){
@@ -28,8 +27,9 @@ public class FileWordCountTask extends Task {
     }
 
     @Override
-    protected Object call()  {
+    protected Integer call()  {
 
-        return null;
+        return countWord;
     }
 }
+
